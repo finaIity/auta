@@ -10,6 +10,7 @@ bin/
 
 # Output of coverage tool
 *.out
+coverage.html
 
 # Go modules
 vendor/
@@ -20,14 +21,101 @@ vendor/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
 
-# Environment variables
+# Environment variables & Secrets
 .env
 .env.local
+.env.*.local
+.env.*.yml
+*.env
+config.local.yml
+
+# Private keys & Credentials
+*.pem
+*.key
+*.pub
+*.gpg
+*.keystore
+*.jks
+id_rsa*
+id_ed25519*
+credentials.json
+secrets.json
+.aws/credentials
+.aws/config
+.docker/config.json
+
+# API Keys & Tokens
+.api-key
+.api-keys
+api-keys.txt
+tokens.txt
+*_tokens.json
+*_credentials.json
+
+# Database files & Backups
+*.db
+*.sqlite
+*.sqlite3
+*.sql.bak
+*.backup
+
+# Sensitive configuration
+config.json
+config.local.json
+docker-compose.local.yml
+docker-compose.override.yml
+
+# Private documentation
+PRIVATE_*.md
+SECRET_*.md
 
 # OS
 .DS_Store
 Thumbs.db
+.directory
 
-# Logs
+# Logs & Temp files
 *.log
+*.log.*
+*.pid
+*.tmp
+*.temp
+.cache/
+
+# Coverage & profiling
+*.prof
+*.pprof
+profile.out
+
+# Generated files to ignore (but not src code)
+*.gen.go
+mocks_*.go
+
+# IDE temp files
+.cfgc
+.project
+.pydevproject
+
+# Node (if used for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python (if used for scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+
+# Ruby (if used)
+Gemfile.lock
+.ruby-version
+
+# Java (if used)
+target/
+*.class
