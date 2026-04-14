@@ -25,16 +25,26 @@ help:
 	@echo "  make clean              - Clean build artifacts"
 
 db-up:
-	docker-compose up -d postgres
+	@echo "Starting PostgreSQL in Docker..."
+	@docker stop auta-postgres > /dev/null 2>&1 || true
+	@docker rm auta-postgres > /dev/null 2>&1 || true
+	docker run -d --name auta-postgres \
+	  -e POSTGRES_DB=auta \
+	  -e POSTGRES_USER=auta \
+	  -e POSTGRES_PASSWORD=auta_dev_password \
+	  -p 5432:5432 \
+	  postgres:16-alpine
 	@echo "Waiting for PostgreSQL to be ready..."
 	@sleep 3
 
 db-down:
-	docker-compose down
+	@echo "Stopping PostgreSQL..."
+	docker stop auta-postgres > /dev/null 2>&1 || true
+	docker rm auta-postgres > /dev/null 2>&1 || true
 
 db-migrate: db-up
 	@echo "Running migrations..."
-	psql -h localhost -U auta -d auta -f migrations/001_initial_schema.sql
+	@cat migrations/001_initial_schema.sql | docker exec -i auta-postgres psql -U auta -d auta
 
 build:
 	go build -o bin/metadata-service ./cmd/metadata-service
@@ -67,7 +77,7 @@ test-manual:
 
 db-test-up:
 	@echo "Setting up test database..."
-	@docker-compose -f docker-compose.test.yml up -d postgres-test 2>/dev/null || \
+	@docker compose -f docker-compose.test.yml up -d postgres-test 2>/dev/null || \
 	  (echo "Creating test database on localhost:5433..." && \
 	   docker run -d --name auta-test-db \
 	     -e POSTGRES_DB=auta_test \
