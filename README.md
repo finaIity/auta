@@ -37,4 +37,7 @@ The platform is organized into five layers:
 - Replication and recovery layer for fault tolerance and self-healing
 
 For the full technical specification, see [architecture.md](architecture.md).
-For testing, all necessary guides are found in [docs/](/docs/)
+
+## Testing
+All necessary guides are found in [docs/](/docs/)
+This section will be updated as the phases get completed over time.
