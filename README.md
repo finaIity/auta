@@ -16,7 +16,7 @@ private cloud storage without relying on centralized providers.
 
 Status: In Active Development, contributions welcome!
 
-- [✓] Phase 1: Metadata Service - HTTP API & Database Layer
+- [x] Phase 1: Metadata Service - HTTP API & Database Layer
 - [ ] Phase 2: Storage Node Service - Chunk Upload/Download/Verification
 - [ ] Phase 3: API Gateway - Request Routing & Authentication
 - [ ] Phase 4: Client Library - Encryption & Chunking Logic
