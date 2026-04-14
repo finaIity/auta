@@ -14,8 +14,7 @@ private cloud storage without relying on centralized providers.
 
 ## Repository Status
 
-Status: In Active Development
-Current Version: MVP v0.1
+Status: In Active Development, contributions welcome!
 
 - [ ] Encrypted chunk engine
 - [ ] Multi-node replication
