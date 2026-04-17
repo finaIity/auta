@@ -39,5 +39,5 @@ The platform is organized into five layers:
 For the full technical specification, see [architecture.md](architecture.md).
 
 ## Testing
-All necessary guides are found in [docs/](/docs/)
+All necessary guides are found in [docs/](/docs/). 
 This section will be updated as the phases get completed over time.
